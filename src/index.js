@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 // import './index.css';
 import Blog from "./blog/Blog";
 
-import { HashRouter, Route, Switch } from "react-router-dom";
+// import { HashRouter, Route, Switch } from "react-router-dom";
 
-import { Home,  About, Knowledge, Work, Whoops404 } from "./views/viewsIndex";
+// import { Home,  About, Knowledge, Work, Whoops404 } from "./views/viewsIndex";
 
 window.React = React
 
