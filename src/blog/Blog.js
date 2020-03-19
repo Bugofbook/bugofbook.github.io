@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect } from "react";
+import { useEffect ,useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -83,15 +83,15 @@ const sidebar = {
 
 export default function Blog() {
   const classes = useStyles();
-  let aaa1 = "";
-let aaa2 = "";
-let aaa3 = "";
-let posts = []
-  useEffect( async () => {
-aaa1 = await fetch(post1)
-aaa2 = await fetch(post2)
-aaa3 = await fetch(post3)
-posts = await [aaa1,aaa2,aaa3];
+  const [posts,setPosts] = useState([])
+//   let aaa1 = "";
+// let aaa2 = "";
+// let aaa3 = "";
+// let posts = []
+  useEffect(() => {
+    fetch(post1).then(e=>e.text()).then(e=>setPosts(pre=>[...pre,e]))
+    fetch(post2).then(e=>e.text()).then(e=>setPosts(pre=>[...pre,e]))
+    fetch(post3).then(e=>e.text()).then(e=>setPosts(pre=>[...pre,e]))
     return () => {
     };
   },)
