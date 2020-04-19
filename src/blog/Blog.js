@@ -94,7 +94,7 @@ export default function Blog() {
     fetch(post3).then(e=>e.text()).then(e=>setPosts(pre=>[...pre,e]))
     return () => {
     };
-  },)
+  },[])
   return (
     <React.Fragment>
       <CssBaseline />
