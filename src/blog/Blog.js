@@ -9,13 +9,10 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
-// import FeaturedPost from './FeaturedPost';
+import FeaturedPost from './FeaturedPost';
 import Main from './Main';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
-import post1 from './blog-post.1.md';
-import post2 from './blog-post.2.md';
-import post3 from './blog-post.3.md';
 
 const useStyles = makeStyles(theme => ({
   mainGrid: {
@@ -43,26 +40,24 @@ const mainFeaturedPost = {
   // linkText: 'Continue reading…',
 };
 
-// const featuredPosts = [
-//   {
-//     title: 'Featured post',
-//     date: 'Nov 12',
-//     description:
-//       'This is a wider card with supporting text below as a natural lead-in to additional content.',
-//     image: 'https://source.unsplash.com/random',
-//     imageText: 'Image Text',
-//   },
-//   {
-//     title: 'Post title',
-//     date: 'Nov 11',
-//     description:
-//       'This is a wider card with supporting text below as a natural lead-in to additional content.',
-//     image: 'https://source.unsplash.com/random',
-//     imageText: 'Image Text',
-//   },
-// ];
-
-// const posts = [post1, post2, post3];
+const featuredPosts = [
+  {
+    title: 'Featured post',
+    date: 'Nov 12',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+  {
+    title: 'Post title',
+    date: 'Nov 11',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+];
 
 const sidebar = {
   title: 'About',
@@ -84,16 +79,9 @@ const sidebar = {
 export default function Blog() {
   const classes = useStyles();
   const [posts,setPosts] = useState([])
-//   let aaa1 = "";
-// let aaa2 = "";
-// let aaa3 = "";
-// let posts = []
-  useEffect(() => {
-    fetch(post1).then(e=>e.text()).then(e=>setPosts(pre=>[...pre,e]))
-    fetch(post2).then(e=>e.text()).then(e=>setPosts(pre=>[...pre,e]))
-    fetch(post3).then(e=>e.text()).then(e=>setPosts(pre=>[...pre,e]))
-    return () => {
-    };
+  useEffect(()=>{
+    let aaa = require.context('../doc',false, /\.md$/).keys().map(e=>e.slice(2)).map(e=>require(`../doc/${e}`))
+    aaa.forEach(post=>fetch(`${post}`).then(e=>e.text()).then(e=>setPosts(pre=>[...pre,e])))
   },[])
   return (
     <React.Fragment>
@@ -102,11 +90,11 @@ export default function Blog() {
         <Header title="Blog" sections={sections} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
-          {/* <Grid container spacing={4}>
+          <Grid container spacing={4}>
             {featuredPosts.map(post => (
               <FeaturedPost key={post.title} post={post} />
             ))}
-          </Grid> */}
+          </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
             <Main title="From the firehose" posts={posts} />
             <Sidebar
