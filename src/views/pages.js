@@ -1,20 +1,23 @@
 import React from 'react';
 import { useEffect ,useState} from "react";
-import { ReactReduxContext } from 'react-redux';
+// import { ReactReduxContext } from 'react-redux';
 
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
 import Header from '../component/Header';
-import MainFeaturedPost from '../component/MainFeaturedPost';
-import FeaturedPost from '../component/FeaturedPost';
+// import MainFeaturedPost from '../component/MainFeaturedPost';
+// import FeaturedPost from '../component/FeaturedPost';
 import Main from '../component/Main';
 import Sidebar from '../component/Sidebar';
 import Footer from '../component/Footer';
 
+import GitHubIcon from '@material-ui/icons/GitHub';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 // const sections = [
 //     { title: '首頁', url: 'Home' },
@@ -67,30 +70,35 @@ export function HomePage() {
     },[])
     return (
         <Pages>
-            <Main title="From the firehose" posts={posts} />
-            <Sidebar 
-              title={sidebar.title}
-              description={sidebar.description}
-              archives={sidebar.archives}
-              social={sidebar.social}
-            />
+            <Grid container>
+                <Main title="From the firehose" posts={posts} />
+                <Sidebar 
+                title={sidebar.title}
+                description={sidebar.description}
+                archives={sidebar.archives}
+                social={sidebar.social}
+                />
+            </Grid>
         </Pages>
     )
 }
 export function JavascriptPage() {
+    const [posts,setPosts] = useState([])
     useEffect(()=>{
         let aaa = require.context('../doc/javascript',false, /\.md$/).keys().map(e=>e.slice(2)).map(e=>require(`../doc/javascript/${e}`))
         aaa.forEach(post=>fetch(`${post}`).then(e=>e.text()).then(e=>setPosts(pre=>[...pre,e])))
       },[])  
     return (
         <Pages>
-            <Main title="From the firehose" posts={posts} />
-            <Sidebar 
-              title={sidebar.title}
-              description={sidebar.description}
-              archives={sidebar.archives}
-              social={sidebar.social}
-            />
+            <Grid container>
+                <Main title="From the firehose" posts={posts} />
+                <Sidebar 
+                title={sidebar.title}
+                description={sidebar.description}
+                archives={sidebar.archives}
+                social={sidebar.social}
+                />
+            </Grid>
         </Pages>
     )
 }
