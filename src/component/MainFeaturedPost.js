@@ -35,9 +35,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
+const post = {
+  title: ' 歡迎來到我的部落格',
+  description:
+    "本首頁是用Matrial-UI上的例子來修改的，之後會慢慢修改",
+  image: 'https://source.unsplash.com/random',
+  imgText: 'main image description',
+  // linkText: 'Continue reading…',
+};
 export default function MainFeaturedPost(props) {
   const classes = useStyles();
-  const { post } = props;
+  // const { post } = props;
 
   return (
     <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${post.image})` }}>

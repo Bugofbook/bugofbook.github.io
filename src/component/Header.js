@@ -25,9 +25,22 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const title="Blog"
+
+const sections = [
+  { title: '首頁', url: '' },
+  { title: 'Javascript', url: 'Javascript' },
+  { title: 'PHP', url: 'PHP' },
+  { title: 'Python', url: 'Python' },
+  { title: 'Ruby', url: 'Ruby' },
+  { title: '數學', url: 'Math' },
+  { title: '小作品', url: 'Project' },
+  { title: '其他', url: 'Others' },
+];
+
 export default function Header(props) {
   const classes = useStyles();
-  const { sections, title } = props;
+  // const { sections, title } = props;
 
   return (
     <React.Fragment>
