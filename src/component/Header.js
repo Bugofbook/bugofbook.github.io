@@ -7,6 +7,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 // import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+// import { MemoryRouter as Router } from 'react-router';
+// import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -70,7 +72,8 @@ export default function Header(props) {
             noWrap
             key={section.title}
             variant="body2"
-            href={section.url}
+            to={`/${section.url}`}
+            // href={section.url}
             className={classes.toolbarLink}
           >
             {section.title}
