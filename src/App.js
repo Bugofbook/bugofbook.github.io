@@ -8,6 +8,7 @@ import {
   MathPage,
   ProjectPage,
   OthersPage,
+  ArticlePage,
   Whoops404,
 } from "./views/pages";
 
@@ -16,12 +17,13 @@ function App() {
     <HashRouter>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/Javascript" component={JavascriptPage} />
-        <Route  exact path="/PHP"  component={PHPPage}/>
-        <Route  exact path="/Python"  component={PythonPage}/>
-        <Route exact path="/Math" component={MathPage} />
-        <Route  exact path="/Project"  component={ProjectPage}/>
-        <Route  exact path="/Others"  component={OthersPage}/>
+        <Route path="/:dirName/:fileName" component={ArticlePage} />
+        <Route path="/javascript" component={JavascriptPage} />
+        <Route path="/php"  component={PHPPage}/>
+        <Route path="/python"  component={PythonPage}/>
+        <Route path="/math" component={MathPage} />
+        <Route path="/project"  component={ProjectPage}/>
+        <Route path="/others"  component={OthersPage}/>
         <Route component={Whoops404} />
       </Switch>
     </HashRouter>

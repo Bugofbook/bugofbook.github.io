@@ -34,7 +34,7 @@ const sections = [
   { title: 'Javascript', url: 'Javascript' },
   { title: 'PHP', url: 'PHP' },
   { title: 'Python', url: 'Python' },
-  { title: 'Ruby', url: 'Ruby' },
+  // { title: 'Ruby', url: 'Ruby' },
   { title: '數學', url: 'Math' },
   { title: '小作品', url: 'Project' },
   { title: '其他', url: 'Others' },
@@ -72,8 +72,8 @@ export default function Header(props) {
             noWrap
             key={section.title}
             variant="body2"
-            to={`/${section.url}`}
-            // href={section.url}
+            // to={`/${section.url}`}
+            href={"#/" + section.url}
             className={classes.toolbarLink}
           >
             {section.title}

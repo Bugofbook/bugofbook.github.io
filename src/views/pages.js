@@ -10,8 +10,8 @@ import Typography from '@material-ui/core/Typography';
 
 import Header from '../component/Header';
 // import MainFeaturedPost from '../component/MainFeaturedPost';
-// import FeaturedPost from '../component/FeaturedPost';
-import Main from '../component/Main';
+import FeaturedPost from '../component/FeaturedPost';
+// import Main from '../component/Main';
 import Sidebar from '../component/Sidebar';
 import Footer from '../component/Footer';
 
@@ -19,6 +19,8 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
+
+import { Article } from "./Artlcle";
 // const sections = [
 //     { title: '首頁', url: 'Home' },
 //     { title: 'Javascript', url: 'Javascript' },
@@ -33,8 +35,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 
 const sidebar = {
     title: 'About',
-    description:
-      '剛入碼農不久的菜雞一隻',
+    description:'剛入碼農不久的菜雞一隻',
     archives: [
       { title: 'March 2020', url: '#' },
       { title: 'February 2020', url: '#' },
@@ -53,25 +54,33 @@ function Pages({children}) {
             <CssBaseline />
             <Container maxWidth="lg">
                 <Header />
-                <main>
+                <Grid container>
                     {children}
-                </main>
+                </Grid>
                 <Footer title="Footer" description="Something here to give the footer a purpose!" />
             </Container>
         </React.Fragment>
     )
 }
 
-export function HomePage() {
+function useReadArticle(dirName="") {
     const [posts,setPosts] = useState([])
-    useEffect(()=>{
-      let aaa = require.context('../doc/home',false, /\.md$/).keys().map(e=>e.slice(2)).map(e=>require(`../doc/home/${e}`))
-      aaa.forEach(post=>fetch(`${post}`).then(e=>e.text()).then(e=>setPosts(pre=>[...pre,e])))
+    useEffect(()=> {
+        let indexData = require(`../doc/${dirName}/index.json`)
+            .map(data=>({...data,"tag":`${data["tag"]}`.split(",")}))
+        setPosts(indexData)
     },[])
+    return [posts]
+}
+
+export function HomePage() {
+    const [posts] = useReadArticle("home")
     return (
         <Pages>
             <Grid container>
-                <Main title="From the firehose" posts={posts} />
+                <Grid  item xs={12} md={8}>
+                    {posts.map(post => (<FeaturedPost key={post.title} post={post} />))}
+                </Grid>
                 <Sidebar 
                 title={sidebar.title}
                 description={sidebar.description}
@@ -83,15 +92,13 @@ export function HomePage() {
     )
 }
 export function JavascriptPage() {
-    const [posts,setPosts] = useState([])
-    useEffect(()=>{
-        let aaa = require.context('../doc/javascript',false, /\.md$/).keys().map(e=>e.slice(2)).map(e=>require(`../doc/javascript/${e}`))
-        aaa.forEach(post=>fetch(`${post}`).then(e=>e.text()).then(e=>setPosts(pre=>[...pre,e])))
-      },[])  
+    const [posts] = useReadArticle("javascript")
     return (
         <Pages>
             <Grid container>
-                <Main title="From the firehose" posts={posts} />
+                <Grid  item xs={12} md={8}>
+                    {posts.map(post => (<FeaturedPost key={post.title} post={post} />))}
+                </Grid>
                 <Sidebar 
                 title={sidebar.title}
                 description={sidebar.description}
@@ -153,6 +160,23 @@ export function Whoops404({location}) {
             <Typography variant={"h1"}>
                 Resource not found at `${location.pathname}`
             </Typography>
+        </Pages>
+    )
+}
+
+export function ArticlePage({match}) {
+    let {dirName,fileName} = match.params
+    return (
+        <Pages>
+            <Grid container>
+                <Article dirName={dirName} fileName={fileName} />
+                <Sidebar 
+                    title={sidebar.title}
+                    description={sidebar.description}
+                    archives={sidebar.archives}
+                    social={sidebar.social}
+                    />
+                </Grid>
         </Pages>
     )
 }

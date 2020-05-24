@@ -1,0 +1,29 @@
+[
+    {
+        "title": "Sample1",
+        "fileAddress":"home/blogPost1",
+        "tag": "Home",
+        "date": "2020-05-01",
+        "description": "Sample blog",
+        "image":"https://source.unsplash.com/random",
+        "imageText":"image Text"
+    },
+    {
+        "title": "Sample2",
+        "fileAddress":"home/blogPost2",
+        "tag": "Home",
+        "date": "2020-05-02",
+        "description": "Sample blog",
+        "image":"https://source.unsplash.com/random",
+        "imageText":"image Text"
+    },
+    {
+        "title": "Sample3",
+        "fileAddress":"home/blogPost3",
+        "tag": "Home",
+        "date": "2020-05-03",
+        "description": "Sample blog",
+        "image":"https://source.unsplash.com/random",
+        "imageText":"image Text"
+    }
+]
