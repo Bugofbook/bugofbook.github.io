@@ -25,5 +25,14 @@
         "description": "Sample blog",
         "image":"https://source.unsplash.com/random",
         "imageText":"image Text"
+    },
+    {
+        "title": "Resume",
+        "fileAddress":"home/resume",
+        "tag": "Home",
+        "date": "2020-05-28",
+        "description": "Person Resume",
+        "image":"https://source.unsplash.com/random",
+        "imageText":"image Text"
     }
 ]

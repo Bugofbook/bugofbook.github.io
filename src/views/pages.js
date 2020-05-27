@@ -63,96 +63,65 @@ function Pages({children}) {
     )
 }
 
+function MainPagesUI({posts}) {
+    return (
+        <Pages>
+            <Grid container spacing={1}>
+                <Grid  container item xs={12} md={8} spacing={1}>
+                    {(posts) ? posts.map(post => (<FeaturedPost key={post.title} post={post} />)) : null}
+                </Grid>
+                <Sidebar 
+                title={sidebar.title}
+                description={sidebar.description}
+                archives={sidebar.archives}
+                social={sidebar.social}
+                />
+            </Grid>
+        </Pages>
+    )
+}
+
 function useReadArticle(dirName="") {
     const [posts,setPosts] = useState([])
     useEffect(()=> {
-        let indexData = require(`../doc/${dirName}/index.json`)
-            .map(data=>({...data,"tag":`${data["tag"]}`.split(",")}))
-        setPosts(indexData)
+        try {
+            let indexData = require(`../doc/${dirName}/index.json`)
+                .map(data=>({...data,"tag":`${data["tag"]}`.split(",")}))
+            setPosts(indexData)            
+        } catch (error) {
+            
+        }
     },[])
     return [posts]
 }
 
 export function HomePage() {
     const [posts] = useReadArticle("home")
-    return (
-        <Pages>
-            <Grid container>
-                <Grid  item xs={12} md={8}>
-                    {posts.map(post => (<FeaturedPost key={post.title} post={post} />))}
-                </Grid>
-                <Sidebar 
-                title={sidebar.title}
-                description={sidebar.description}
-                archives={sidebar.archives}
-                social={sidebar.social}
-                />
-            </Grid>
-        </Pages>
-    )
+    return <MainPagesUI posts={posts} />
 }
 export function JavascriptPage() {
     const [posts] = useReadArticle("javascript")
-    return (
-        <Pages>
-            <Grid container>
-                <Grid  item xs={12} md={8}>
-                    {posts.map(post => (<FeaturedPost key={post.title} post={post} />))}
-                </Grid>
-                <Sidebar 
-                title={sidebar.title}
-                description={sidebar.description}
-                archives={sidebar.archives}
-                social={sidebar.social}
-                />
-            </Grid>
-        </Pages>
-    )
+    return <MainPagesUI posts={posts} />
 }
 export function PHPPage() {
-    return (
-        <Pages>
-            <Typography variant={"h1"}>
-                PHP
-            </Typography>
-        </Pages>
-    )
+    const [posts] = useReadArticle("php")
+    return <MainPagesUI posts={posts} />
 }
 export function PythonPage() {
-    return (
-        <Pages>
-            <Typography variant={"h1"}>
-                Python
-            </Typography>
-        </Pages>
-    )
+    const [posts] = useReadArticle("python")
+    return <MainPagesUI posts={posts} />
 }
 export function MathPage() {
-    return (
-        <Pages>
-            <Typography variant={"h1"}>
-                Math
-            </Typography>
-        </Pages>
-    )
+    const [posts] = useReadArticle("math")
+    return <MainPagesUI posts={posts} />
 }
 export function ProjectPage() {
-    return (
-        <Pages>
-            <Typography variant={"h1"}>
-                Project
-            </Typography>
-        </Pages>
-    )
+    const [posts] = useReadArticle("project")
+    return <MainPagesUI posts={posts} />
 }
 export function OthersPage() {
-    return (
-        <Pages>
-            <Typography variant={"h1"}>
-                Others
-            </Typography>
-        </Pages>
-    )
+    const [posts] = useReadArticle("others")
+    return <MainPagesUI posts={posts} />
 }
 export function Whoops404({location}) {
     return (
