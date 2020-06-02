@@ -18,7 +18,7 @@
 
 #### 框架
 
-* React：自學
+* React：自學(Class+Hook)
 * Vue：公司使用
 
 #### UI 和程設
