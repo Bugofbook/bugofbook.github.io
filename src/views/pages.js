@@ -137,7 +137,7 @@ export function ArticlePage({match}) {
     let {dirName,fileName} = match.params
     return (
         <Pages>
-            <Grid container>
+            <Grid container  spacing={1}>
                 <Article dirName={dirName} fileName={fileName} />
                 <Sidebar 
                     title={sidebar.title}
