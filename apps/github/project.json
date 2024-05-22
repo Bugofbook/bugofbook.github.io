@@ -6,5 +6,46 @@
   "tags": [],
   "// targets": "to see all targets run: nx show project github --web",
   "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/github",
+        "webpackConfig": "apps/github/webpack.config.js"
+      },
+      "configurations": {
+          "development": {
+            "webpackConfig": "apps/github/webpack.config.js"
+          },
+          "gh": {
+            "outputPath": "dist/apps/gh",
+            "webpackConfig": "apps/github/webpack.gh.config.js"
+          },
+          "production": {
+            "webpackConfig": "apps/github/webpack.config.js"
+          }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+          "historyApiFallback": true,
+          "buildTarget": "github:build",
+          "hmr": true
+      },
+      "configurations": {
+          "development": {
+            "buildTarget": "github:build:development"
+          },
+          "gh": {
+            "buildTarget": "github:build:gh"
+          },
+          "production": {
+            "buildTarget": "github:build:production"
+          }
+      }
+    }
   }
 }
