@@ -19,7 +19,7 @@
             "webpackConfig": "apps/github/webpack.config.js"
           },
           "gh": {
-            "outputPath": "dist/apps/gh",
+            "outputPath": "dist/gh",
             "webpackConfig": "apps/github/webpack.gh.config.js"
           },
           "production": {

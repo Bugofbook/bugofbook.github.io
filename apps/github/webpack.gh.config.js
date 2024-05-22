@@ -1,10 +1,9 @@
 const { NxAppWebpackPlugin } = require('@nx/webpack/app-plugin');
 const { NxReactWebpackPlugin } = require('@nx/react/webpack-plugin');
 const { join } = require('path');
-
 module.exports = {
   output: {
-    path: join(__dirname, '../../dist/apps/gh'),
+    path: join(__dirname, '../../dist/gh'),
   },
   devServer: {
     port: 4200,
