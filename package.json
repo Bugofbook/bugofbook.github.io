@@ -2,7 +2,9 @@
   "name": "@bugofbook/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "apps:gh": "npx gh-pages --dist dist/apps/gh"
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",

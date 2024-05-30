@@ -5,7 +5,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Routes from './routers'
 // import App from './app/app';
 const Router = createBrowserRouter(
-  [Routes]
+  [Routes],
+  {
+    basename: '/bugofbook.github.io',
+  }
 )
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
