@@ -17,7 +17,7 @@
     "@mui/system": "^5.15.15",
     "fp-ts": "^2.16.5",
     "gh-pages": "^6.1.1",
-    "next": "14.0.4",
+    "next": "14.1.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-markdown": "^9.0.1",
