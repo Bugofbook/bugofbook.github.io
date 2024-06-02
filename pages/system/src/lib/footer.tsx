@@ -7,7 +7,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      {'Your Website'}
+      {'BugofBook'}
       {' '}
       {new Date().getFullYear()}
       {'.'}
