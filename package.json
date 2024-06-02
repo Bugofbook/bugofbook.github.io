@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "apps:gh": "npx gh-pages --dist dist/apps/gh"
+    "apps:gh": "npx gh-pages --dist dist/gh"
   },
   "private": true,
   "dependencies": {

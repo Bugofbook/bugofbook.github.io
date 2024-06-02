@@ -1,10 +1,9 @@
 const { NxAppWebpackPlugin } = require('@nx/webpack/app-plugin');
 const { NxReactWebpackPlugin } = require('@nx/react/webpack-plugin');
 const { join } = require('path');
-
 module.exports = {
   output: {
-    path: join(__dirname, '../../dist/apps/github'),
+    path: join(__dirname, '../../dist/gh'),
   },
   devServer: {
     port: 4200,
@@ -17,7 +16,7 @@ module.exports = {
       main: './src/main.tsx',
       index: './src/index.html',
       baseHref: '/',
-      assets: ['./src/favicon.ico', './src/assets'],
+      assets: ['./src/favicon.ico', './src/assets', './src/404.html'],
       styles: [],
       outputHashing: process.env['NODE_ENV'] === 'production' ? 'all' : 'none',
       optimization: process.env['NODE_ENV'] === 'production',
