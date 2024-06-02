@@ -1,7 +1,7 @@
-[    
+[
     {
         "title": "Resume",
-        "fileAddress":"home/resume",
+        "fileAddress":"resume",
         "tag": "Home",
         "date": "2020-05-28",
         "description": "Person Resume",
@@ -10,7 +10,7 @@
     },
     {
         "title": "This Blog",
-        "fileAddress":"home/blog",
+        "fileAddress":"blog",
         "tag": "Home",
         "date": "2020-05-28",
         "description": "Blog Description",

@@ -1,7 +1,7 @@
 [
     {
         "title": "React學習",
-        "fileAddress":"javascript/react1",
+        "fileAddress":"react1",
         "tag": "React",
         "date": "2020-05-09",
         "description": "如何學習React",
@@ -10,7 +10,7 @@
     },
     {
         "title": "React Element",
-        "fileAddress":"javascript/reactElement",
+        "fileAddress":"reactElement",
         "tag": "React",
         "date": "2020-05-09",
         "description": "React Element的介紹",
