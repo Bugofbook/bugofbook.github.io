@@ -1,11 +1,8 @@
-import React from 'react';
-import { Link as RouteLink } from 'react-router-dom';
-import type { LinkProps } from 'react-router-dom'
+import { Fragment } from 'react';
+import type { FunctionComponent, PropsWithChildren } from 'react'
 import { styled } from '@mui/system';
 import Toolbar, { ToolbarProps } from '@mui/material/Toolbar';
 import Typography, { TypographyProps } from '@mui/material/Typography';
-// import Link, { LinkProps } from '@mui/material/Link';
-
 const ToolBarFirst = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
   borderBottom: `1px solid 1px`,
 }))
@@ -16,27 +13,14 @@ const ToolBarSecond = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
 const ToolBarTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   flex: 1,
 }))
-const ToolBarLink = styled(RouteLink)<LinkProps & React.RefAttributes<HTMLAnchorElement>>(({ theme }) => ({
-  padding: theme.spacing(1),
-  flexShrink: 0,
-  flexWrap: 'nowrap',
-  color: 'inherit',
-}))
-const title="Blog"
-
-const sections = [
-  { title: '首頁', url: '' },
-  { title: 'Javascript', url: 'Javascript' },
-  // { title: 'PHP', url: 'PHP' },
-  // { title: 'Python', url: 'Python' },
-  // { title: '數學', url: 'Math' },
-  { title: '小作品', url: 'Project' },
-  { title: '其他', url: 'Others' },
-];
-
-function Header() {
+type Props = {
+  titleContent: string,
+  sectionData: Array<{ title: string, url: string }>
+  LinkComponent: FunctionComponent<PropsWithChildren<{to: string}>>
+}
+function Header({titleContent, sectionData, LinkComponent}: Props) {
   return (
-    <React.Fragment>
+    <Fragment>
       <ToolBarFirst>
         {/* <Button size="small">Subscribe</Button> */}
         <ToolBarTitle
@@ -46,7 +30,7 @@ function Header() {
           align="center"
           noWrap
         >
-          {title}
+          {titleContent}
         </ToolBarTitle>
         {/* <IconButton>
           <SearchIcon />
@@ -56,16 +40,16 @@ function Header() {
         </Button> */}
       </ToolBarFirst>
       <ToolBarSecond component={'nav'} variant="dense">
-        {sections.map(section => (
-          <ToolBarLink
+        {sectionData.map(section => (
+          <LinkComponent
             key={section.title}
-            to={"/" + section.url}
+            to={section.url}
           >
             {section.title}
-          </ToolBarLink>
+          </LinkComponent>
         ))}
       </ToolBarSecond>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

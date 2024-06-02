@@ -1,6 +1,7 @@
-import { json, useLoaderData } from 'react-router-dom'
-// import Page from '../pages/home'
-import Page2 from '../pages/main'
+import type { PropsWithChildren } from 'react'
+import { json, useLoaderData, Link } from 'react-router-dom'
+import { MainPage } from '@bugofbook/pages/main'
+import CardActionArea from '@mui/material/CardActionArea';
 type ArticleData = {
   title: string,
   fileAddress: string,
@@ -9,6 +10,13 @@ type ArticleData = {
   description: string,
   image: string,
   imageTitle: string,
+}
+function LinkComponent ({href, children }:PropsWithChildren<{href: string}>) {
+  return (
+    <CardActionArea<typeof Link> component={Link} to={ href }>
+      {children}
+    </CardActionArea>
+  )
 }
 type LoaderData = {
   articles: Array<ArticleData>
@@ -26,7 +34,8 @@ const action = async () => await json({})
 const Component = () => {
   const {articles} = useLoaderData() as LoaderData
   return (
-    <Page2
+    <MainPage
+      LinkComponent={LinkComponent}
       articles={articles}
     />
   )

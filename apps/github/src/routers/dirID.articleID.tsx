@@ -1,6 +1,6 @@
 import type { LoaderFunctionArgs } from 'react-router-dom'
 import { json, useLoaderData } from 'react-router-dom'
-import ArticlePage from '../pages/article'
+import { ArticlePage } from '@bugofbook/pages/article'
 type LoaderData = {
   articleContent: string
 }

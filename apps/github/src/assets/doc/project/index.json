@@ -1,7 +1,7 @@
 [
     {
         "title": "泰偉電子",
-        "fileAddress":"project/taiwei",
+        "fileAddress":"taiwei",
         "tag": "taiwei",
         "date": "2020-05-28",
         "description": "泰偉電子",
@@ -10,7 +10,7 @@
     },
     {
         "title": "個人小作品",
-        "fileAddress":"project/person",
+        "fileAddress":"person",
         "tag": "Person",
         "date": "2020-05-28",
         "description": "個人小作品",

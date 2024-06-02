@@ -1,7 +1,7 @@
 [
     {
         "title": "設計模式-1",
-        "fileAddress":"others/designPattern1",
+        "fileAddress":"designPattern1",
         "tag": "React",
         "date": "2020-05-09",
         "description": "設計模式",
