@@ -9,6 +9,7 @@
     "@docusaurus/preset-classic": "^3.7.0",
     "@mdx-js/react": "^3.1.0",
     "@nx/remix": "21.0.0-canary.20250206-8bd0bcd",
+    "@nx/webpack": "^21.0.0-canary.20250206-8bd0bcd",
     "@remix-run/node": "^2.15.0",
     "@remix-run/react": "^2.15.0",
     "@remix-run/serve": "^2.15.0",
