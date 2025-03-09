@@ -14,11 +14,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {
-      "@bugofbook/pages/article": ["pages/article/src/index.ts"],
-      "@bugofbook/pages/main": ["pages/main/src/index.ts"],
-      "@bugofbook/pages/system": ["pages/system/src/index.ts"]
-    }
+    "paths": {}
   },
   "exclude": ["node_modules", "tmp"]
 }
