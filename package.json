@@ -26,6 +26,7 @@
     "@nx/eslint": "20.5.0",
     "@nx/eslint-plugin": "20.5.0",
     "@nx/js": "20.5.0",
+    "@nx/next": "^20.5.0",
     "@nx/playwright": "20.5.0",
     "@nx/react": "20.5.0",
     "@nx/vite": "20.5.0",
