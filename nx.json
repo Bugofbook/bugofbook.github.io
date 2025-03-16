@@ -12,7 +12,6 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "nxCloudId": "67cd96ec6de1e311dc5a0905",
   "plugins": [
     {
       "plugin": "@nx/remix/plugin",
