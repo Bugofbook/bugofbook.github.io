@@ -1,0 +1,8 @@
+.features {
+  display: flex;
+  align-items: stretch;
+  padding: 2rem;
+  width: 100%;
+  gap: 2rem;
+  justify-content: center;
+}
