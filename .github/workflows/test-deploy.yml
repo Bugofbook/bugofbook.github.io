@@ -1,14 +1,14 @@
-name: Test deployment
+name: Deploy to GitHub Pages
 
 on:
-  pull_request:
+  push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 jobs:
-  test-deploy:
-    name: Test deployment
+  build:
+    name: Build Docusaurus
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,9 +17,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: yarn
+          cache: npm
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Test build website
-        run: yarn build
+        run: npm ci
+      - name: Build website
+        run: npm run build
+
+      - name: Upload Build Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/apps/website
