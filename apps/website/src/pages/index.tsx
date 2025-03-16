@@ -1,7 +1,8 @@
+import React from 'react';
 import clsx from 'clsx';
-import Link from '@docusaurus/Link';
+// import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
+// import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
@@ -15,31 +16,38 @@ function HomepageHeader() {
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
+        {/* <p className="hero__subtitle">{siteConfig.tagline}</p> */}
+        {/* <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro"
           >
-            Docusaurus Tutorial - 5min ⏱️
           </Link>
-        </div>
+        </div> */}
+            本網站是使用 Docusaurus 建立的
       </div>
     </header>
   );
 }
 
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
+  // const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
-    >
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
-  );
+    // <Layout
+    //   title={`Hello from ${siteConfig.title}`}
+    //   description="Description will go into a meta tag in <head />"
+    // >
+    //   <HomepageHeader />
+    //   <main>
+    //     <HomepageFeatures />
+    //   </main>
+    // </Layout>
+    <div
+  >
+    <HomepageHeader />
+    <main>
+      <HomepageFeatures />
+    </main>
+  </div>
+);
 }
