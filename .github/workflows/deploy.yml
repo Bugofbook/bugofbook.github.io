@@ -20,9 +20,9 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
       - name: Build website
-        run: npm run build
+        run: npx nx run website:build
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
