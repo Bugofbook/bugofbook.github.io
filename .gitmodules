@@ -1,0 +1,3 @@
+[submodule "software-docs"]
+	path = software-docs
+	url = https://github.com/Bugofbook/software-docs.git

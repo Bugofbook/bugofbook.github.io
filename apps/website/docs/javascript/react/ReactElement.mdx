@@ -1,0 +1,104 @@
+# ReactElement
+
+ReactElement 說明
+
+## 什麼是 ReactElement
+
+Element 在 React 中是一個特別的物件（ReactElement），是 React 用來告訴其他程式要如何產生畫面的 JavaScript 物件，還要加上其他套件才能順利地做成其他程式語言能讀的程式碼。在網頁中是使用 `react-dom` 套件來生成 DOM，而在移動裝置中是使用 `react-native` 來生成移動裝置專用的 APP。
+
+## JSX 和 React.createElement
+
+ReactElement 有兩種使用方法，原生的 `React.createElement` 函式和 JSX。嚴格來說，JSX 會使用 Babel 再翻譯成 `React.createElement` 函式。而且官方建議是直接使用 JSX + Babel，因此之後的介紹會以 JSX 為主。
+
+### JSX
+
+JSX 就像是 JavaScript 專用的 XML，可以讓 Babel 轉換成 React 的 ReactElement 樹。但因為 Babel 和 React 本身的限制，在使用 JSX 時有一些設定和限制。
+
+一個 JSX 通常由以下三個部分所組成，這同時也是 `React.createElement` 函式的三個參數：
+
+- 標籤名稱
+- 標籤屬性
+- 標籤內容
+
+[官方的說明文檔](https://reactjs.org/docs/jsx-in-depth.html)
+
+#### 標籤名稱
+
+JSX 的標籤名稱看起來和 XML 的標籤名稱很像，但在 React 之中，標籤名稱是用來指向對應的 Component 名稱，再從 Component 中獲取對應的 ReactElement 樹。
+
+- JSX 的標籤名稱與 JavaScript 的變數命名方式相似，但有一個額外的限制：如果標籤名稱是 **小寫開頭**，React 會解析為內建的 HTML 標籤，而不是自訂的 Component。官方建議 **使用者自訂的 JSX 標籤名稱應使用大寫駝峰命名法**。
+- 因為標籤名稱是用來連結到對應的 Component，所以它可以是變數或函數的回傳值。例如：
+  
+  ```jsx
+  const DynamicComponent = "div";
+  <DynamicComponent>Hello</DynamicComponent>; // 這實際上會變成 <div>Hello</div>
+  ```
+
+- JSX 允許 **物件點運算符** (`.`) 來存取內部 Component：
+  
+  ```jsx
+  const Components = { Header: () => <h1>Title</h1> };
+  <Components.Header />; // 這等同於 <h1>Title</h1>
+  ```
+
+#### 標籤屬性
+
+JSX 的標籤屬性類似於 HTML 屬性，但在 React 中，它們會作為 `props` 傳入 Component。
+
+- 屬性名稱為 **等號左邊**，值為 **等號右邊**。
+- **屬性值** 必須是 **字串字面值** 或 **JavaScript 表達式**（大括號 `{}`）。
+
+  ```jsx
+  <MyComponent name="Alice" age={30} />
+  ```
+
+- **物件展開語法** 允許將整個物件傳入：
+
+  ```jsx
+  const props = { name: "Alice", age: 30 };
+  <MyComponent {...props} />;
+  ```
+
+- **不能使用 `class`，必須使用 `className`**：
+
+  ```jsx
+  <div className="container"></div>
+  ```
+
+#### 標籤內容
+
+JSX 的標籤內容類似於 HTML，但其本質上是 `children` 屬性。
+
+- **字串與 JavaScript 表達式** 皆可作為標籤內容：
+
+  ```jsx
+  <div>Hello, {name}!</div>
+  ```
+
+- **Booleans、null、undefined 皆不會顯示**：
+
+  ```jsx
+  <div>{false}{null}{undefined}{true}</div> // 不會顯示任何內容
+  ```
+
+- **陣列會展開為多個節點**：
+
+  ```jsx
+  const items = ["Item1", "Item2", "Item3"];
+  <ul>{items.map(item => <li key={item}>{item}</li>)}</ul>
+  ```
+
+#### 實際的 HTML 元素
+
+當標籤名稱為小寫開頭時，JSX 會解析為對應的 HTML 標籤。例如：
+
+```jsx
+const element = <h1>Hello, world!</h1>;
+// 這會被轉換成 React.createElement("h1", null, "Hello, world!");
+```
+
+需要注意的是：
+
+- 屬性名稱必須使用 **駝峰命名法**（camelCase），如 `className`、`onClick` 等。
+- 屬性值可以是 JavaScript 表達式或字串，但 **不能是 HTML 直接寫法**。
+- [所有可用的標籤屬性](https://reactjs.org/docs/dom-elements.html)

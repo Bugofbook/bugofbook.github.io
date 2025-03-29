@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
@@ -19,6 +19,8 @@ jobs:
           node-version: 18
           cache: npm
 
+      - name: Checkout private docs repo
+        run: git clone https://x-access-token:${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/bugofbook/software-docs.git software-docs
       - name: Install dependencies
         run: npm install --legacy-peer-deps
       - name: Build website
