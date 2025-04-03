@@ -18,11 +18,6 @@ const HeroList: HeroItem[] = [
     subTitle: '這裡放著我學習Javascript的心得與筆記。',
     link: '/docs/javascript',
   },
-  // {
-  //   title: 'Powered by React',
-  //   subTitle: 'Extend or customize your website layout by reusing React. Docusaurus can be extended while reusing the same header and footer.',
-  //   link: '/docs/intro',
-  // },
 ]
 function HeroCard({ title, subTitle, link }: HeroItem) {
   return (

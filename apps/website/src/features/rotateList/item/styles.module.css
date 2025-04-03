@@ -1,0 +1,64 @@
+.rotating__item {
+  position: absolute;
+  top: 50%;
+  /* left: calc(50% + var(--item-radius)); */
+  left: calc(50% + var(--item-radius) * 1px);
+  transform-origin: calc(var(--item-radius) * -1px) 50%;
+}
+.rotating__item__2 {
+  position: absolute;
+}
+.rotating__runner {
+  animation-play-state: running;
+}
+.rotating__stop {
+  animation-play-state: paused;
+}
+.rotating__clockwise {
+  animation-name: rotating__clockwise;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-delay: 0s;
+}
+.rotation__anticlockwise {
+  animation-name: rotating__anticlockwise;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-delay: 0s;
+}
+@keyframes rotate {
+  0% {
+    transform:
+    rotate(calc(var(--initial-rotating-degree) * 1deg))
+  }
+  100% {
+    transform:
+    rotate(calc(var(--initial-rotating-degree) * 1deg + 360deg))
+  }
+}
+@keyframes rotating__clockwise {
+  0% {
+    transform:
+    rotate(calc(var(--initial-rotating-degree) * 1deg))
+  }
+  100% {
+    transform:
+    rotate(calc(var(--initial-rotating-degree) * 1deg + 360deg))
+  }
+}
+@keyframes rotating__anticlockwise {
+  0% {
+    transform:
+    rotate(calc(var(--initial-rotating-degree) * -1deg))
+  }
+  100% {
+    transform:
+    rotate(calc(var(--initial-rotating-degree) * -1deg - 360deg)) /* 放到圓周上的角度 */
+  }
+}

@@ -31,6 +31,7 @@ const config: Config = {
         path: '../../software-docs/react-docs',
         routeBasePath: 'react-docs',
         sidebarPath: require.resolve('../../software-docs/sidebars.js'),
+        editUrl: 'https://github.com/bugofbook/software-docs/blog/master'
       },
     ],
   ],
@@ -58,15 +59,6 @@ const config: Config = {
         },
       } satisfies Preset.Options,
     ],
-    // [
-    //   '@docusaurus/plugin-content-docs',
-    //   {
-    //     id: 'react-docs',
-    //     path: '../../software-docs/react-docs',
-    //     routeBasePath: 'react-docs',
-    //     sidebarPath: require.resolve('../../software-docs/sidebars.js'),
-    //   },
-    // ],
   ],
 
   themeConfig: {
@@ -85,7 +77,7 @@ const config: Config = {
         //   position: 'left',
         //   label: 'Javascript',
         // },
-        { to: '/blog', label: 'Blog', position: 'left' },
+        // { to: '/blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/bugofbook/bugofbook.github.io',
           label: 'GitHub',
