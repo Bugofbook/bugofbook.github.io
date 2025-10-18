@@ -20,6 +20,8 @@ function Component ({
   const isHover = useSyncExternalStore(
     isHoverStore.subscribes.isHover,
     isHoverStore.getSnapshots.isHover,
+    // For server-side rendering, provide a stable snapshot (not hovered)
+    () => false,
   )
   useEffect(() => {
     elementRef.current?.addEventListener('mouseenter', isHoverStore.actions.onHover)
