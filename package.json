@@ -14,10 +14,7 @@
     "@emotion/styled": "^11.13.5",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "3.1.0",
-    "@mui/base": "^5.0.0-beta.40",
-    "@mui/icons-material": "^7.3.4",
-    "@mui/material": "^7.3.4",
-    "@mui/system": "^7.3.3",
+    
     "@nx-extend/docusaurus": "^4.0.1",
     "@nx/remix": "21.6.5",
     "@nx/webpack": "21.6.5",
@@ -34,7 +31,7 @@
     "prism-react-renderer": "^2.4.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-markdown": "^9.0.1",
+    
     "react-router-dom": "^7.1.0",
     "simple-markdown": "^0.7.3",
     "tslib": "^2.3.0"
