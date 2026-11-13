@@ -14,7 +14,7 @@ const config: Config = {
   deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: { hooks: { onBrokenMarkdownLinks: 'warn' } },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -30,7 +30,7 @@ const config: Config = {
         id: 'react-docs',
         path: '../../software-docs/react-docs',
         routeBasePath: 'react-docs',
-        sidebarPath: require.resolve('../../software-docs/sidebars.js'),
+        sidebarPath: require.resolve('../../software-docs/sidebars.ts'),
         editUrl: 'https://github.com/bugofbook/software-docs/blog/master'
       },
     ],

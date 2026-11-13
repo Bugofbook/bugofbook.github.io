@@ -8,7 +8,7 @@ type Props = {
   list: ComponentProps<typeof EntryList>;
 }
 
-function Widget({header, list}: Props): JSX.Element {
+function Widget({header, list}: Props): React.JSX.Element {
   return (
   <div>
     <EntryHeader

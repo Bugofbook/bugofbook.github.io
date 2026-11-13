@@ -39,7 +39,7 @@ function HeroCard({ title, subTitle, link }: HeroItem) {
     </div>
   );
 }
-export default function HomepageFeatures(): JSX.Element {
+export default function HomepageFeatures(): React.JSX.Element {
   return (
     <section className={styles.features}>
       {HeroList.map((props, idx) => (
