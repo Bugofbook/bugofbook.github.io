@@ -17,7 +17,7 @@ npm run build
 
 ## 發布
 
-在 `develop` 提交變更，再用 `git merge --no-ff develop` 合併進 `master`。推送 `master` 會觸發 `Deploy to GitHub Pages`。workflow 使用 `PRIVATE_REPO_TOKEN` 讀取子模組，GitHub Pages 的發布來源需設為 GitHub Actions。
+在 `develop` 提交變更，再用 `git merge --no-ff develop` 合併進 `master`。推送 `master` 會觸發 `Deploy to GitHub Pages`。workflow 使用 `SOFTWARE_DOCS_DEPLOY_KEY` 以唯讀部署金鑰取出子模組鎖定的 commit，GitHub Pages 的發布來源需設為 GitHub Actions。
 
 需要手動重跑時，從 repo 目錄執行：
 
