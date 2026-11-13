@@ -15,7 +15,7 @@ function customStyle ({ itemRadius, initialRotationDegree}: { itemRadius: number
 function Component ({
   initialRotationDegree,
   children
-}: PropsWithChildren<Props>): JSX.Element {
+}: PropsWithChildren<Props>): React.JSX.Element {
   const elementRef = useRef<HTMLDivElement>(null)
   const isHover = useSyncExternalStore(
     isHoverStore.subscribes.isHover,

@@ -5,7 +5,7 @@ import RotateItem from './item';
 type Props = {
   items: ReactElement[]
 }
-function Component({items}: Props): JSX.Element {
+function Component({items}: Props): React.JSX.Element {
   const initialRotationDegrees = items.map((_, index, items) => (360 / items.length) * index);
   return (
     <div className={styles['rotating-container']}>

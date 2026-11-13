@@ -6,45 +6,44 @@ on:
       - master
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
 jobs:
   build:
     name: Build Docusaurus
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
+          submodules: true
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          persist-credentials: false
+      - uses: actions/setup-node@v7.1.0
         with:
-          node-version: 18
+          node-version: 24
           cache: npm
-
-      - name: Checkout private docs repo
-        run: git clone https://x-access-token:${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/bugofbook/software-docs.git software-docs
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-      - name: Build website
-        run: npx nx run website:build
-
-      - name: Upload Build Artifact
-        uses: actions/upload-pages-artifact@v3
+      - run: npm ci --legacy-peer-deps
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v5.0.0
         with:
-          path: dist/apps/website  # 修改這裡，指定正確的 build 目錄
+          path: dist/apps/website
 
   deploy:
     name: Deploy to GitHub Pages
+    if: github.ref == 'refs/heads/master'
     needs: build
-
     permissions:
       pages: write
       id-token: write
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
+      - uses: actions/deploy-pages@v5.0.1
         id: deployment
-        uses: actions/deploy-pages@v4

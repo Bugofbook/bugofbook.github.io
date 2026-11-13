@@ -24,7 +24,7 @@ const items = [
     Javascript
   </Link>
 ]
-function Component (): JSX.Element {
+function Component (): React.JSX.Element {
   const { siteConfig }=useDocusaurusContext();
   return (
     <main className={styles.main}>

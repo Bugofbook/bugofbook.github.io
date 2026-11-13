@@ -19,7 +19,7 @@ const HeroList: HeroItem[] = [
 type ListProps = {
   items: Array<HeroItem>
 }
-function HomepageFeatures({items}: ListProps): JSX.Element {
+function HomepageFeatures({items}: ListProps): React.JSX.Element {
   return (
     <section className={styles.features}>
       {items.map((props, idx) => (
