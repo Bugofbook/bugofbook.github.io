@@ -30,7 +30,6 @@ const config: Config = {
         id: 'react-docs',
         path: '../../software-docs/react-docs',
         routeBasePath: 'react-docs',
-        sidebarPath: require.resolve('../../software-docs/sidebars.ts'),
         editUrl: 'https://github.com/bugofbook/software-docs/blog/master'
       },
     ],
